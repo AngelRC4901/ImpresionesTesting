@@ -1,4 +1,4 @@
-*{
+* {
     margin: 0;
     padding: 0;
     text-decoration: none;
@@ -6,11 +6,11 @@
     box-sizing: border-box;
 }
 
-body{
+body {
     font-family: 'Poppins';
 }
 
-header{
+header {
     height: 100vh;
     width: 100vw;
     background-image: url(../img/bg.jpg);
@@ -26,36 +26,36 @@ header{
     justify-content: center;
     align-items: center;
     padding: 0px 90px;
-  }
-  
-  .content-section {
+}
+
+.content-section {
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
     flex-wrap: wrap;
-  }
-  
-  .content-section .card {
+}
+
+.content-section .card {
     flex: 1;
     margin: 20px 20px;
     box-shadow: 0px, 2px, 8px, 0px, rgba(0, 0, 0, 0.2);
-  }
-  
-  .content-section .card img {
+}
+
+.content-section .card img {
     width: 30%;
     height: 20%;
     margin: 15px 0;
     font-size: 28px;
     color: black;
     font-family: sans-serif;
-  }
-  
-  .content-section .card h2 {
-    padding: 20px;
-  }
+}
 
-.navbar{
+.content-section .card h2 {
+    padding: 20px;
+}
+
+.navbar {
     position: absolute;
     margin: 0px;
     display: flex;
@@ -69,27 +69,28 @@ header{
     color: #000000;
 }
 
-.navbar .logo{
+.navbar .logo {
     font-size: 3em;
     color: black;
     font-weight: bold;
 }
 
-.navbar .nav-links ul{
+.navbar .nav-links ul {
     display: flex;
     font-size: 1.2em;
 }
 
-.navbar .nav-links ul li{
+.navbar .nav-links ul li {
     margin: 0 25px;
 }
 
-.navbar .nav-links ul li.active a, .navbar .nav-links ul li a:hover{
+.navbar .nav-links ul li.active a,
+.navbar .nav-links ul li a:hover {
     color: purple;
     font-weight: 600;
 }
 
-.navbar .impresion{
+.navbar .impresion {
     display: none;
     position: absolute;
     top: 40px;
@@ -99,21 +100,21 @@ header{
 
 @media screen and (max-width: 900px) {
 
-    .navbar{
+    .navbar {
         padding: 0;
     }
 
-    .navbar .logo{
+    .navbar .logo {
         position: absolute;
         top: 40px;
         left: 10px;
     }
 
-    .navbar .impresion{
+    .navbar .impresion {
         display: block;
-    }   
+    }
 
-    .nav-links{
+    .nav-links {
         top: 0;
         left: 0;
         position: absolute;
@@ -128,17 +129,17 @@ header{
         transition: all 0.5s ease;
     }
 
-    .nav-links.mobile-menu{
+    .nav-links.mobile-menu {
         margin-left: 0;
     }
 
-    .nav-links ul{
+    .nav-links ul {
         display: flex;
         flex-direction: column;
         align-items: center;
     }
 
-    .navbar .nav-links ul li{
+    .navbar .nav-links ul li {
         margin: 25px 0;
         font-size: 1.2em;
     }
@@ -149,8 +150,8 @@ header{
         margin-bottom: -100px;
         margin-left: 27%;
         margin-top: 170px;
-      }
-    
+    }
+
     .content-section .card img {
         width: 25%;
         height: auto;

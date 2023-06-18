@@ -14,7 +14,7 @@
 
     <script src="../js/funciones.js"></script>
 
-    <title>Generar CURP</title>
+    <title>Generar Constancia de Estudios</title>
 </head>
 
 <body>
@@ -45,7 +45,8 @@
                     </div>
                 </div>
 
-                <br><br>
+                <br>
+
                 <div class="details ID">
                     <span class="title">Datos Generales</span>
 
@@ -106,8 +107,24 @@
                     </div>
                     <br>
 
-                    <div class="buttons">
+                    <div class="details ID">
+                        <span class="title">Carrera Profesional</span>
 
+                        <div class="fields">
+                            <div class="input-field">
+                                <label>Carrera</label>
+                                <input type="text" id="carrera" placeholder="Escribe tu carrera" required>
+                            </div>
+
+                            <div class="input-field">
+                                <label>ID</label>
+                                <input type="text" id="id" placeholder="Escribe tu id" required>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="buttons">
                         <button class="submit" onclick="menu()">
                             <div class="backBtn">
                                 <i class="uil uil-navigator"></i>
@@ -116,7 +133,7 @@
                         </button>
 
 
-                        <button class="submit" onclick="submitFormCURP()">
+                        <button class="submit" onclick="submitFormConstanciaEstudios()">
                             <span class="btnText">Submit</span>
                             <i class="uil uil-navigator"></i>
                         </button>

@@ -34,6 +34,22 @@ function submitFormCURP() {
   }
 }
 
+function submitFormConstanciaEstudios() {
+  var allInput = document.querySelectorAll('.first input, .first select');
+  var isFormValid = true;
+
+  allInput.forEach(function (input) {
+    if (input.value === '' || input.value === 'Selecciona genero' || input.value === 'Lugar de Nacimiento') {
+      isFormValid = false;
+      return;
+    }
+  });
+
+  if (isFormValid) {
+    obtenerConstanciaEstudios();
+  }
+}
+
 function submitFormDiploma() {
   var nombresInput = document.getElementById('nombres');
   var apellidosInput = document.getElementById('apellidos');
@@ -67,14 +83,14 @@ function submitFormRecibo() {
     isFormValid = false;
   }
 
-  if(direccionInput.value === ''){
+  if (direccionInput.value === '') {
     isFormValid = false;
   }
 
   if (isFormValid) {
     // Realizar acciones adicionales o enviar el formulario
     guardarRecibo();
-  }else{
+  } else {
     alert('El campo nombre es obligatorio');
   }
 }
@@ -106,6 +122,20 @@ function guardarCURP(curp) {
   window.open("../Curp/curp.html");
 }
 
+function guardarConstanciaEstudios(curp, carrera, id) {
+  localStorage.nombres = document.getElementById("nombre").value;
+  localStorage.apellidoP = document.getElementById("apellidoPaterno").value;
+  localStorage.apellidoM = document.getElementById("apellidoMaterno").value;
+  localStorage.fechaNacimiento = document.getElementById("fechaNacimiento").value;
+  localStorage.sexo = document.getElementById("genero").value;
+  localStorage.lugarNacimiento = document.getElementById("estado").value;
+  localStorage.curp = curp;
+  localStorage.carrera = carrera;
+  localStorage.id = id;
+
+  window.open("../Constancia/constanciaEstudios.html");
+}
+
 function guardarDiploma() {
   localStorage.nombres = document.getElementById("nombres").value;
   localStorage.apellidos = document.getElementById("apellidos").value;
@@ -132,6 +162,8 @@ window.onload = function () {
   var canvasDiploma = document.getElementById("lienzoDiploma");
 
   var canvasRecibo = document.getElementById("lienzoRecibo");
+
+  var canvasConstanciaEstudios = document.getElementById("lienzoConstanciaEstudios");
 
   if (canvas && canvas.getContext) {
     var ctx = canvas.getContext("2d");
@@ -277,7 +309,7 @@ window.onload = function () {
 
       ctx.font = "17pt Times New Roman";
       ctx.fillStyle = "black";
-      ctx.fillText("Alejandro Rivera Duron", 470, 435);
+      ctx.fillText("Alejandro Rivera Durón", 470, 435);
 
       var imag = new Image();
       imag.src = "../img/LOGO.png";
@@ -299,21 +331,77 @@ window.onload = function () {
       // Ajustar la escala del canvas
       var scaleRatio = 2; // Factor de escala, puedes ajustarlo según tus necesidades
       ctx.scale(scaleRatio, scaleRatio);
-  
+
       ctx.beginPath();
-  
+
       ctx.font = "4pt Verdana"; // Aumenta el tamaño de fuente y usa una fuente diferente
       ctx.fillStyle = "black";
       ctx.fillText(localStorage.nombres, 70, 8);
-      
     }
   }
-  
+
+  if (canvasConstanciaEstudios && canvasConstanciaEstudios.getContext) {
+    var ctx = canvasConstanciaEstudios.getContext("2d");
+
+    if (ctx) {
+      ctx.beginPath();
+
+      ctx.fillStyle = "#B1B2B4";
+      ctx.fillRect(218, 280, 350, 25);
+      ctx.font = "14pt Times New Roman";
+      ctx.fillStyle = "black";
+      ctx.fillText(localStorage.nombres, 218, 300);
+
+      ctx.font = "14pt Times New Roman";
+      ctx.fillStyle = "black";
+      ctx.fillText(localStorage.apellidoP, 400, 300);
+
+      ctx.font = "14pt Times New Roman";
+      ctx.fillStyle = "black";
+      ctx.fillText(localStorage.apellidoM, 500, 300);
+
+      ctx.fillStyle = "#B1B2B4";
+      ctx.fillRect(218, 305, 200, 20);
+      ctx.font = "14pt Times New Roman";
+      ctx.fillStyle = "black";
+      ctx.fillText(localStorage.curp, 218, 322);
+
+      ctx.fillStyle = "#B1B2B4";
+      ctx.fillRect(218, 325, 350, 20);
+      ctx.font = "14pt Times New Roman";
+      ctx.fillStyle = "black";
+      ctx.fillText(localStorage.carrera, 218, 342);
+
+      ctx.fillStyle = "#B1B2B4";
+      ctx.fillRect(590, 252, 80, 19);
+      ctx.font = "14pt Times New Roman";
+      ctx.fillStyle = "black";
+      ctx.fillText(localStorage.id, 590, 265);
+    }
+
+  }
+
 };
 
 // Función para generar la CURP
 function generarCURP() {
+  var nombre = document.getElementById("nombre").value.toUpperCase();
+  var apellidoPaterno = document.getElementById("apellidoPaterno").value.toUpperCase();
+  var apellidoMaterno = document.getElementById("apellidoMaterno").value.toUpperCase();
+  var fechaNacimiento = document.getElementById("fechaNacimiento").value;
+  var genero = sexo();
+  var estado = claveEntidad();
 
+  var anio = fechaNacimiento.substring(2, 4);
+  var mes = fechaNacimiento.substring(5, 7).padStart(2, "0"); // Agrega un cero delante del mes si es menor que 10
+  var dia = fechaNacimiento.substring(8, 10);
+
+  var curp = apellidoPaterno.substring(0, 2) + apellidoMaterno.substring(0, 1) + nombre.substring(0, 1) + anio + mes + dia + genero + estado;
+
+  return curp;
+}
+
+function generarCURPConstanciaEstudios() {
   var nombre = document.getElementById("nombre").value.toUpperCase();
   var apellidoPaterno = document.getElementById("apellidoPaterno").value.toUpperCase();
   var apellidoMaterno = document.getElementById("apellidoMaterno").value.toUpperCase();
@@ -342,6 +430,21 @@ function obtenerCURP() {
   var curp = generarCURP(nombre, apellidoPaterno, apellidoMaterno, fechaNacimiento, genero, estado);
 
   guardarCURP(curp);
+}
+
+function obtenerConstanciaEstudios() {
+  var nombre = document.getElementById('nombre').value;
+  var apellidoPaterno = document.getElementById('apellidoPaterno').value;
+  var apellidoMaterno = document.getElementById('apellidoMaterno').value;
+  var fechaNacimiento = new Date(document.getElementById('fechaNacimiento').value);
+  var genero = document.getElementById('genero').value;
+  var estado = document.getElementById('estado').value;
+  var carrera = document.getElementById('carrera').value;
+  var id = document.getElementById('id').value;
+
+  var curp = generarCURP(nombre, apellidoPaterno, apellidoMaterno, fechaNacimiento, genero, estado);
+
+  guardarConstanciaEstudios(curp, carrera, id);
 }
 
 //Funcion para cambiar los values del campo sexo
@@ -509,6 +612,3 @@ function pago() {
     });
   });
 }
-
-
-

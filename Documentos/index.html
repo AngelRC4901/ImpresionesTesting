@@ -1,21 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modulo de Impresion</title>
+    <title>Modulo de Impresión</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
 
+<body>
     <nav class="navbar">
-        <a href="#" class="logo">Modulo de impresion</a>
+        <a href="#" class="logo">Modulo de impresión</a>
         <div class="nav-links">
             <ul>
                 <li class="active"><a href="ActaNacimiento/actaForm.html">Actas Nacimiento</a></li>
                 <li><a href="Curp/curpForm.html">CURP</a></li>
-                <li><a href="#">Constancia de estudios</a></li>
+                <li><a href="Constancia/constanciaEstudiosform.html">Constancia de estudios</a></li>
                 <li><a href="Diploma/diplomaForm.html">Diplomas</a></li>
                 <li><a href="Recibo/reciboform.html">Recibos</a></li>
             </ul>
@@ -37,20 +38,20 @@
                 </div>
             </div>
         </div>
-        
+
         <img src="img/menuIcon.png" alt="impresion" class="impresion">
     </nav>
-    
+
     <header></header>
 </body>
 
-    <script>
-        const menuImpresion = document.querySelector(".impresion")
-        const navLinks = document.querySelector(".nav-links")
+<script>
+    const menuImpresion = document.querySelector(".impresion")
+    const navLinks = document.querySelector(".nav-links")
 
-        menuImpresion.addEventListener('click',()=>{
+    menuImpresion.addEventListener('click', () => {
         navLinks.classList.toggle('mobile-menu')
-        })
-    </script>
+    })
+</script>
 
 </html>
