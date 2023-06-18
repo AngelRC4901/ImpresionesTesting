@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<!-- Coding By CodingNepal - codingnepalweb.com -->
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!----======== CSS ======== -->
+    <link rel="stylesheet" href="../css/form.css">
+
+    <!----===== Iconscout CSS ===== -->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+
+    <script src="../js/funciones.js"></script>
+
+    <title>Generar Actas</title>
+</head>
+
+<body>
+    <div class="container">
+        <header>Registro de Datos</header>
+
+        <br>
+        <form action="#">
+            <div class="form first">
+                <div class="details name">
+                    <span class="title">Nombre Completo</span>
+
+                    <div class="fields">
+                        <div class="input-field">
+                            <label>Nombre</label>
+                            <input type="text" id="nombre" placeholder="Digite su Nombre(s)" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Apellido Paterno</label>
+                            <input type="text" id="apellidoPaterno" placeholder="Digite Apellido Paterno" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Apellido Materno</label>
+                            <input type="text" id="apellidoMaterno" placeholder="Digite Apellido Materno" required>
+                        </div>
+                    </div>
+                </div>
+
+                <br><br>
+                <div class="details ID">
+                    <span class="title">Datos Generales</span>
+
+                    <div class="fields">
+                        <div class="input-field">
+                            <label>Genero</label>
+                            <select id="genero" required>
+                                <option disabled selected>Selecciona genero</option>
+                                <option value="Hombre">Hombre</option>
+                                <option value="Mujer">Mujer</option>
+                            </select>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Fecha de nacimiento</label>
+                            <input type="date" placeholder="Ingresa tu fecha de nacimiento" id="fechaNacimiento" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Lugar de Nacimiento</label>
+                            <select id="estado" required>
+                                <option disabled selected>Lugar de Nacimiento</option>
+                                <option value="Aguascalientes">Aguascalientes</option>
+                                <option value="Baja California">Baja California</option>
+                                <option value="Baja California Sur">Baja California Sur</option>
+                                <option value="Campeche">Campeche</option>
+                                <option value="Coahuila">Coahuila</option>
+                                <option value="Colima">Colima</option>
+                                <option value="Chiapas">Chiapas</option>
+                                <option value="Chihuahua">Chihuahua</option>
+                                <option value="Ciudad de Mexico">Ciudad de México</option>
+                                <option value="Durango">Durango</option>
+                                <option value="Guanajuato">Guanajuato</option>
+                                <option value="Guerrero">Guerrero</option>
+                                <option value="Hidalgo">Hidalgo</option>
+                                <option value="Jalisco">Jalisco</option>
+                                <option value="Mexico">México</option>
+                                <option value="Michoacan">Michoacán</option>
+                                <option value="Morelos">Morelos</option>
+                                <option value="Nayarit">Nayarit</option>
+                                <option value="Nuevo Leon">Nuevo León</option>
+                                <option value="Oaxaca">Oaxaca</option>
+                                <option value="Puebla">Puebla</option>
+                                <option value="Queretaro">Querétaro</option>
+                                <option value="Quintana Roo">Quintana Roo</option>
+                                <option value="San Luis Potosi">San Luis Potosí</option>
+                                <option value="Sinaloa">Sinaloa</option>
+                                <option value="Sonora">Sonora</option>
+                                <option value="Tabasco">Tabasco</option>
+                                <option value="Tamaulipas">Tamaulipas</option>
+                                <option value="Tlaxcala">Tlaxcala</option>
+                                <option value="Veracruz">Veracruz</option>
+                                <option value="Yucatan">Yucatán</option>
+                                <option value="Zacatecas">Zacatecas</option>
+                            </select>
+                        </div>
+                    </div>
+                    <br>
+
+                    <div class="buttons">
+                        
+                        <button class="submit" onclick="menu()">
+                            <div class="backBtn">
+                              <i class="uil uil-navigator"></i>
+                              <span class="btnText">Back</span>
+                            </div>
+                          </button>
+                          
+
+                        <button class="submit" onclick="submitForm()">
+                            <span class="btnText">Submit</span>
+                            <i class="uil uil-navigator"></i>
+                        </button>
+                          
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>
